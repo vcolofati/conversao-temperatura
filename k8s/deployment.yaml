@@ -3,19 +3,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: convertemp
+  name: conversao-temperatura
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: convertemp
+      app: conversao-temperatura
   template:
     metadata:
       labels:
-        app: convertemp
+        app: conversao-temperatura
     spec:
       containers:
-      - name: convertemp
+      - name: conversao-temperatura
         image: vcolofati/conversao-temperatura:v4
         ports:
         - containerPort: 5000
@@ -26,10 +26,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: convertemp
+  name: conversao-temperatura
 spec:
   selector:
-    app: convertemp
+    app: conversao-temperatura
   ports:
   - port: 80
     targetPort: 5000
