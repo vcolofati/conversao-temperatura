@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: conversao-temperatura
-        image: vcolofati/conversao-temperatura:v4
+        image: vcolofati/conversao-temperatura:v7
         ports:
-        - containerPort: 5000
+        - containerPort: 8080
 
 ---
 # Service da aplicação conversao de temperatura
@@ -32,7 +32,7 @@ spec:
     app: conversao-temperatura
   ports:
   - port: 80
-    targetPort: 5000
+    targetPort: 8080
   type: LoadBalancer
 
 
