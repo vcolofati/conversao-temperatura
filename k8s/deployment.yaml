@@ -1,0 +1,47 @@
+# Deployment da aplicação conversão temperatura
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conversao-temperatura
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: conversao-temperatura
+  template:
+    metadata:
+      labels:
+        app: conversao-temperatura
+    spec:
+      containers:
+      - name: conversao-temperatura
+#        image: vcolofati/rotten-potatoes:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
+
+---
+# Service da aplicação conversao de temperatura
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: conversao-temperatura
+spec:
+  selector:
+    app: conversao-temperatura
+  ports:
+  - port: 80
+    targetPort: 5000
+    nodePort: 30000
+  type: LoadBalancer
+
+
+
+  
+
+
