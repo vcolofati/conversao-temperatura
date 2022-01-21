@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: conversao-temperatura
-        image: vcolofati/conversao-temperatura:latest
+        image: vcolofati/conversao-temperatura:v4
         resources:
           limits:
             memory: "128Mi"
